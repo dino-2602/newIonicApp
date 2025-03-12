@@ -52,16 +52,16 @@ Dieses Projekt erweitert die Taxi-App um eine **erweiterte Registrierung**. Nebe
 ## Screenshots
 
 1. **Eintrag in der Datenbank**
-![Eintrag DB](tA_screenshots/Teil_3/eintrag_db3.png)
+- ![Eintrag DB](tA_screenshots/Teil_3/eintrag_db3.png)
    
 2. **Terminal Log**
-![Terminal Log](tA_screenshots/Teil_3/ideterminal4.png)
+- ![Terminal Log](tA_screenshots/Teil_3/ideterminal4.png)
 
 3. **Browser-Konsole**
-![Konsole](tA_screenshots/Teil_3/konsole2.png)
+- ![Konsole](tA_screenshots/Teil_3/konsole2.png)
 
 4. **Register-Page UI**
-![Register Page](tA_screenshots/Teil_3/register_page1.png)
+- ![Register Page](tA_screenshots/Teil_3/register_page1.png)
 
 ### Code-Referenzen
 Backend-Routen (z. B. /api/register)
