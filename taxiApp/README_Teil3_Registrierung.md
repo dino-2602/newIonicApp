@@ -64,10 +64,9 @@ Dieses Projekt erweitert die Taxi-App um eine **erweiterte Registrierung**. Nebe
 - ![Register Page](tA_screenshots/Teil_3/register_page1.png)
 
 ### Code-Referenzen
-- Backend-Routen (z. B. [api/register](https://github.com/dino-2602/newIonicApp/blob/master/taxiApp/src/app/register/register-routing.module.ts)
-- User-Model (Sequelize)
-- RegisterPage (Frontend)
-- AuthService (Frontend)
+- Backend-Routen (z. B. [api/register](https://github.com/dino-2602/newIonicApp/blob/master/taxiApp/src/app/register/register-routing.module.ts))
+- User-Model [Sequelize](https://github.com/dino-2602/newIonicApp/blob/master/taxiBackend/models/user.js)
+- RegisterPage [Frontend](https://github.com/dino-2602/newIonicApp/blob/master/taxiApp/src/app/register/register.page.html)
 - Installation & Start
 
 ### Backend
