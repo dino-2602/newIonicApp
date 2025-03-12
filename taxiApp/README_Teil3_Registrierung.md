@@ -23,23 +23,104 @@ Dieses Projekt erweitert die Taxi-App um eine **erweiterte Registrierung**. Nebe
 
 ---
 
-## Schritte zur Implementierung
+Schritte zur Implementierung
+Backend: User Model Implementierung (Sequelize)
 
-1. **Erweiterung der Datenbank**  
-   - Neue Spalten in der `Users`-Tabelle (z. B. `firstName`, `lastName`, `phone`, `type`, `area`).   
-   - ![Eintrag in der DB](tA_screenshots/Teil_3/eintrag_db3.png)
+Wo: In der Datei backend/models/user.js
+Was:
+Hier definierst du mit Sequelize das Schema für den Benutzer.
+Du legst Felder wie username, password, email und ggf. weitere Felder (z. B. firstName, lastName, phone, etc.) fest.
+Beispielcode:
+js
+Kopieren
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    // Weitere Felder hinzufügen, falls benötigt
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    phone: DataTypes.STRING,
+  });
+  return User;
+};
+Warum: Dieses Model stellt sicher, dass alle Benutzerinformationen korrekt strukturiert in der MySQL-Datenbank gespeichert werden.
+Unterschied zu Screenshots:
+Implementierungsschritt: Beschreibt den Code, den du schreibst.
+Screenshot: Zeigt das Ergebnis in der Datenbank (z. B. einen Eintrag in der Tabelle Users).
+Backend: API-Endpunkt für Registrierung
 
-2. **Anpassen des Backend-Codes (Part 2)**  
-   - In der `routes/login.js` (oder entsprechendem Router) wird `POST /api/register` erweitert, um die neuen Felder (z. B. `firstName`, `lastName`, `phone`) in der Datenbank zu speichern.  
-   - ![Terminal Log](tA_screenshots/Teil_3/ideterminal4.png)
+Wo: In der Datei backend/routes/login.js (oder einer separaten Datei, falls du die Routen trennst)
+Was:
+Erweitere den Registrierung-Endpunkt, sodass er neben username, password und email auch die neuen Felder (wie firstName, lastName, phone, etc.) übernimmt und in das User Model schreibt.
+Beispielcode:
+js
+Kopieren
+router.post('/register', async (req, res) => {
+  try {
+    const { username, password, email, firstName, lastName, phone } = req.body;
+    const user = await User.create({ username, password, email, firstName, lastName, phone });
+    res.status(201).json({ success: true, data: user });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+Warum: Damit wird beim Registrieren ein neuer Benutzer mit allen erforderlichen Daten in die Datenbank geschrieben.
+Frontend: Registrierungsformular anpassen
 
-3. **Ionic-Frontend (Part 3)**  
-   - Erweitertes Formular in `register.page.html` mit Feldern `firstName`, `lastName`, `phone` usw.  
-   - `register.page.ts` schickt die zusätzlichen Felder an den AuthService.
-   - ![Browser Konsole](tA_screenshots/Teil_3/konsole2.png)
+Wo: In der Datei taxiApp/src/app/pages/register/register.page.html
+Was:
+Ergänze das Formular um zusätzliche Eingabefelder (z. B. Vorname, Nachname, Telefonnummer).
+Beispiel:
+html
+Kopieren
+<ion-item>
+  <ion-label position="floating">First Name</ion-label>
+  <ion-input [(ngModel)]="firstName" name="firstName"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Last Name</ion-label>
+  <ion-input [(ngModel)]="lastName" name="lastName"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Phone</ion-label>
+  <ion-input [(ngModel)]="phone" name="phone" type="tel"></ion-input>
+</ion-item>
+Wo und wie:
+Die zugehörige register.page.ts-Datei muss die neuen Variablen (firstName, lastName, phone) definieren und in der onRegister()-Methode an den AuthService übergeben.
+Beispiel:
+ts
+Kopieren
+export class RegisterPage {
+  username: string = '';
+  email: string = '';
+  password: string = '';
+  firstName: string = '';
+  lastName: string = '';
+  phone: string = '';
 
-4. **Registrierungsformular (UI)**
-   - ![Register Page UI](tA_screenshots/Teil_3/register_page1.png)
+  constructor(private authService: AuthService) {}
+
+  onRegister() {
+    this.authService.register(this.username, this.password, this.email, this.firstName, this.lastName, this.phone)
+      .subscribe({
+        next: (res: any) => { console.log('Register success:', res); },
+        error: (err: any) => { console.error('Register error:', err); }
+      });
+  }
+}
 
 5. **Testen**  
    - `node index.js` im Ordner `backend` → Backend auf Port 3000 starten  
