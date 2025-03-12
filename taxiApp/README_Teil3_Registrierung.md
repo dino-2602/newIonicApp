@@ -26,32 +26,20 @@ Dieses Projekt erweitert die Taxi-App um eine **erweiterte Registrierung**. Nebe
 ## Schritte zur Implementierung
 
 1. **Erweiterung der Datenbank**  
-   - Neue Spalten in der `Users`-Tabelle (z. B. `firstName`, `lastName`, `phone`, `type`, `area`).  
-   - *Screenshot-Tipp:* Zeige den **Datenbank-Eintrag** nach erfolgreicher Registrierung.
-     ```md
-     ![Eintrag in der DB](tA_screenshots/Teil_3/eintrag_db3.png)
-     ```
+   - Neue Spalten in der `Users`-Tabelle (z. B. `firstName`, `lastName`, `phone`, `type`, `area`).   
+   - ![Eintrag in der DB](tA_screenshots/Teil_3/eintrag_db3.png)
 
 2. **Anpassen des Backend-Codes (Part 2)**  
    - In der `routes/login.js` (oder entsprechendem Router) wird `POST /api/register` erweitert, um die neuen Felder (z. B. `firstName`, `lastName`, `phone`) in der Datenbank zu speichern.  
-   - *Screenshot-Tipp:* Terminal-Log, der das SQL-INSERT zeigt.
-     ```md
-     ![Terminal Log](tA_screenshots/Teil_3/ideterminal4.png)
-     ```
+   - ![Terminal Log](tA_screenshots/Teil_3/ideterminal4.png)
 
 3. **Ionic-Frontend (Part 3)**  
    - Erweitertes Formular in `register.page.html` mit Feldern `firstName`, `lastName`, `phone` usw.  
-   - `register.page.ts` schickt die zusätzlichen Felder an den AuthService.  
-   - *Screenshot-Tipp:* Zeige die **Browser-Konsole** mit dem gesendeten Payload und der Response.
-     ```md
-     ![Browser Konsole](tA_screenshots/Teil_3/konsole2.png)
-     ```
+   - `register.page.ts` schickt die zusätzlichen Felder an den AuthService.
+   - ![Browser Konsole](tA_screenshots/Teil_3/konsole2.png)
 
-4. **Registrierungsformular (UI)**  
-   - *Screenshot-Tipp:* Ein Bild der fertigen Register-Page, wo man die Felder sieht.
-     ```md
-     ![Register Page UI](tA_screenshots/Teil_3/register_page1.png)
-     ```
+4. **Registrierungsformular (UI)**
+   - ![Register Page UI](tA_screenshots/Teil_3/register_page1.png)
 
 5. **Testen**  
    - `node index.js` im Ordner `backend` → Backend auf Port 3000 starten  
