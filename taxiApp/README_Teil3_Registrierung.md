@@ -23,16 +23,19 @@ Dieses Projekt erweitert die Taxi-App um eine **erweiterte Registrierung**. Nebe
 
 ---
 
-Schritte zur Implementierung
-Backend: User Model Implementierung (Sequelize)
+# Implementierung der Benutzerregistrierung mit Sequelize, Express und Ionic
 
-Wo: In der Datei backend/models/user.js
-Was:
-Hier definierst du mit Sequelize das Schema für den Benutzer.
-Du legst Felder wie username, password, email und ggf. weitere Felder (z. B. firstName, lastName, phone, etc.) fest.
-Beispielcode:
-js
-Kopieren
+## Backend: User Model Implementierung (Sequelize)
+
+### **Datei:** `backend/models/user.js`
+
+Hier wird mit Sequelize das Schema für den Benutzer definiert. Die Felder umfassen:
+- `username` (eindeutig, erforderlich)
+- `password` (erforderlich)
+- `email` (eindeutig, erforderlich)
+- `firstName`, `lastName`, `phone` (optionale Felder)
+
+```javascript
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
@@ -49,25 +52,30 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
     },
-    // Weitere Felder hinzufügen, falls benötigt
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     phone: DataTypes.STRING,
   });
   return User;
 };
-Warum: Dieses Model stellt sicher, dass alle Benutzerinformationen korrekt strukturiert in der MySQL-Datenbank gespeichert werden.
-Unterschied zu Screenshots:
-Implementierungsschritt: Beschreibt den Code, den du schreibst.
-Screenshot: Zeigt das Ergebnis in der Datenbank (z. B. einen Eintrag in der Tabelle Users).
-Backend: API-Endpunkt für Registrierung
+```
 
-Wo: In der Datei backend/routes/login.js (oder einer separaten Datei, falls du die Routen trennst)
-Was:
-Erweitere den Registrierung-Endpunkt, sodass er neben username, password und email auch die neuen Felder (wie firstName, lastName, phone, etc.) übernimmt und in das User Model schreibt.
-Beispielcode:
-js
-Kopieren
+### **Warum?**
+Dieses Model stellt sicher, dass alle Benutzerinformationen korrekt strukturiert in der MySQL-Datenbank gespeichert werden.
+
+---
+
+## Backend: API-Endpunkt für Registrierung
+
+### **Datei:** `backend/routes/login.js` (oder in separater Datei für Benutzer-Routen)
+
+Hier wird der Registrierung-Endpunkt erweitert, um neben `username`, `password` und `email` auch `firstName`, `lastName` und `phone` zu speichern.
+
+```javascript
+const express = require('express');
+const router = express.Router();
+const { User } = require('../models');
+
 router.post('/register', async (req, res) => {
   try {
     const { username, password, email, firstName, lastName, phone } = req.body;
@@ -77,15 +85,22 @@ router.post('/register', async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 });
-Warum: Damit wird beim Registrieren ein neuer Benutzer mit allen erforderlichen Daten in die Datenbank geschrieben.
-Frontend: Registrierungsformular anpassen
 
-Wo: In der Datei taxiApp/src/app/pages/register/register.page.html
-Was:
-Ergänze das Formular um zusätzliche Eingabefelder (z. B. Vorname, Nachname, Telefonnummer).
-Beispiel:
-html
-Kopieren
+module.exports = router;
+```
+
+### **Warum?**
+Dieser Endpunkt ermöglicht die Registrierung eines neuen Benutzers mit allen erforderlichen Daten in der Datenbank.
+
+---
+
+## Frontend: Registrierungsformular anpassen (Ionic)
+
+### **Datei:** `taxiApp/src/app/pages/register/register.page.html`
+
+Das Formular wird um zusätzliche Eingabefelder erweitert:
+
+```html
 <ion-item>
   <ion-label position="floating">First Name</ion-label>
   <ion-input [(ngModel)]="firstName" name="firstName"></ion-input>
@@ -98,11 +113,13 @@ Kopieren
   <ion-label position="floating">Phone</ion-label>
   <ion-input [(ngModel)]="phone" name="phone" type="tel"></ion-input>
 </ion-item>
-Wo und wie:
-Die zugehörige register.page.ts-Datei muss die neuen Variablen (firstName, lastName, phone) definieren und in der onRegister()-Methode an den AuthService übergeben.
-Beispiel:
-ts
-Kopieren
+```
+
+### **Datei:** `taxiApp/src/app/pages/register/register.page.ts`
+
+Die neuen Variablen müssen in `register.page.ts` definiert und in der `onRegister()`-Methode an den `AuthService` übergeben werden:
+
+```typescript
 export class RegisterPage {
   username: string = '';
   email: string = '';
@@ -121,6 +138,12 @@ export class RegisterPage {
       });
   }
 }
+```
+
+### **Warum?**
+Diese Änderungen stellen sicher, dass alle Benutzerinformationen in der UI erfasst und an das Backend gesendet werden.
+
+
 
 5. **Testen**  
    - `node index.js` im Ordner `backend` → Backend auf Port 3000 starten  
