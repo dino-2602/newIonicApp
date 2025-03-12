@@ -64,11 +64,11 @@ Dieses Projekt erweitert die Taxi-App um eine **erweiterte Registrierung**. Nebe
 - ![Register Page](tA_screenshots/Teil_3/register_page1.png)
 
 ### Code-Referenzen
-Backend-Routen (z. B. /api/register)
-User-Model (Sequelize)
-RegisterPage (Frontend)
-AuthService (Frontend)
-Installation & Start
+- Backend-Routen (z. B. /api/register)
+- User-Model (Sequelize)
+- RegisterPage (Frontend)
+- AuthService (Frontend)
+- Installation & Start
 
 ### Backend
 cd backend

@@ -17,4 +17,4 @@ app.use('/login', loginRouter);
 //console.log(process.env.JWT_SECRET);
 
 
-app.listen(8102,() => {console.log('Server gestartet... warten auf API-Aufrufe')})
+app.listen(3000,() => {console.log('Server gestartet... warten auf API-Aufrufe')})

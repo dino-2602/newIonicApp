@@ -6,7 +6,7 @@ import {Observable, tap} from 'rxjs';
   providedIn: 'root'
 })
 export class APIServiceService {
-  private apiUrl = 'http://localhost:8102';
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
