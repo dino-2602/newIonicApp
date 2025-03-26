@@ -150,13 +150,13 @@ this.http.post('http://localhost:3000/api/login', this.user.value)
 
 ## Code-Referenzen
 - Frontend (Ionic) [Frontend](https://github.com/dino-2602/newIonicApp/tree/master/taxiApp)
-- src/app/auth/login.component.ts / .html / .scss [Login]()
-- src/app/auth/register.component.ts / .html / .scss [Register]()
+- src/app/auth/login.component.ts / .html / .scss [Login](https://github.com/dino-2602/newIonicApp/tree/master/taxiApp/src/app/login)
+- src/app/auth/register.component.ts / .html / .scss [Register](https://github.com/dino-2602/newIonicApp/tree/master/taxiApp/src/app/register)
 
 #### Backend (Node.js / Express)
-- backend/server.js (Express-Startpunkt) [Server.js]()
-- backend/routes/auth.js (API-Routen für Login & Registrierung) [routes/auth.js]()
-- backend/models/ (Datenbankmodelle, falls Sequelize oder ein anderes ORM verwendet wird) [models/]()
+- backend/server.js (Express-Startpunkt) [Server.js](https://github.com/dino-2602/newIonicApp/blob/master/taxiBackend/models/index.js)
+- backend/routes/auth.js (API-Routen für Login & Registrierung) [routes/login.js](https://github.com/dino-2602/newIonicApp/blob/master/taxiBackend/routes/login.js)
+- backend/models/ (Datenbankmodelle, falls Sequelize oder ein anderes ORM verwendet wird) [models/](https://github.com/dino-2602/newIonicApp/tree/master/taxiBackend/models)
 
 ## Installation
 Voraussetzungen
