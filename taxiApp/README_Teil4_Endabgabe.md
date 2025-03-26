@@ -33,13 +33,13 @@ Das Projekt soll demonstrieren, wie Ionic als Frontend-Technologie arbeitet und 
 
 ## Technologien
 
-![Ionic] (https://img.shields.io/badge/Ionic-5%2B-blue?logo=ionic&logoColor=white) 
-![Angular] (https://img.shields.io/badge/Angular-v12%2B-red?logo=angular&logoColor=white)  
-![Node.js] (https://img.shields.io/badge/Node.js-v14%2B-green?logo=node.js&logoColor=white)  
-![Express] (https://img.shields.io/badge/Express-4.x-blue)  
-![Sequelize] (https://img.shields.io/badge/Sequelize-6.x-blue?logo=sequelize&logoColor=white)
-![MySQL] (https://img.shields.io/badge/MySQL-8.x-lightblue?logo=mysql&logoColor=white)  
-![SCSS] (https://img.shields.io/badge/SCSS-3.x-ff69b4?logo=SASS&logoColor=white)
+![Ionic](https://img.shields.io/badge/Ionic-5%2B-blue?logo=ionic&logoColor=white) 
+![Angular](https://img.shields.io/badge/Angular-v12%2B-red?logo=angular&logoColor=white)  
+![Node.js](https://img.shields.io/badge/Node.js-v14%2B-green?logo=node.js&logoColor=white)  
+![Express](https://img.shields.io/badge/Express-4.x-blue)  
+![Sequelize](https://img.shields.io/badge/Sequelize-6.x-blue?logo=sequelize&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.x-lightblue?logo=mysql&logoColor=white)  
+![SCSS](https://img.shields.io/badge/SCSS-3.x-ff69b4?logo=SASS&logoColor=white)
 
 > **Hinweis:** Sensible Daten wie Datenbankzugänge und Tokens werden in `.env`-Dateien oder ähnlichen Konfigurationsdateien gehalten und **nicht** im Repository abgelegt.
 
