@@ -1,27 +1,113 @@
+:root {
+  --primary-color: #4a6cf7;
+  --secondary-color: #6a11cb;
+  --background-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  --input-background: rgba(255, 255, 255, 0.2);
+  --input-focus-background: rgba(255, 255, 255, 0.3);
+}
+
+ion-content {
+  --background: var(--background-gradient);
+  height: 100%;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+    --color: white;
+
+    ion-title {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+  }
+}
+
+// Button-Styling
+ion-buttons {
+  ion-button {
+    --background: rgba(255, 255, 255, 0.2);
+    --color: white;
+    --background-activated: rgba(255, 255, 255, 0.3);
+    margin: 0 5px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    ion-icon {
+      color: white;
+      margin-right: 5px;
+    }
+  }
+}
+
 #container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   text-align: center;
+  color: white;
+  padding: 20px;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  strong {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  p {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-card-content {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+
+  ion-badge {
+    --background: var(--primary-color);
+    --color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+// Animationen
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-#container a {
-  text-decoration: none;
+#container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+// Responsive Anpassungen
+@media (max-width: 600px) {
+  ion-buttons {
+    flex-direction: column;
+    align-items: center;
+
+    ion-button {
+      width: 80%;
+      margin: 5px 0;
+    }
+  }
 }
