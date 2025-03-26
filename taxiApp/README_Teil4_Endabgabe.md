@@ -44,6 +44,45 @@ Das Projekt soll demonstrieren, wie Ionic als Frontend-Technologie arbeitet und 
 
 > **Hinweis:** Sensible Daten wie Datenbankzugänge und Tokens werden in `.env`-Dateien oder ähnlichen Konfigurationsdateien gehalten und **nicht** im Repository abgelegt.
 
+# Implementierung der Benutzerregistrierung mit Sequelize, Express und Ionic
+
+## Backend: User Model Implementierung (Sequelize)
+
+### **Datei:** `backend/models/user.js`
+
+Hier wird mit Sequelize das Schema für den Benutzer definiert. Die Felder umfassen:
+- `username` (eindeutig, erforderlich)
+- `password` (erforderlich)
+- `email` (eindeutig, erforderlich)
+- `firstName`, `lastName`, `phone` (optionale Felder)
+
+```javascript
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    phone: DataTypes.STRING,
+  });
+  return User;
+};
+```
+
+### **Warum?**
+Dieses Model stellt sicher, dass alle Benutzerinformationen korrekt strukturiert in der MySQL-Datenbank gespeichert werden.
 ## Funktionsweise – Zusammenspiel Frontend & Backend
 
 ### Frontend (Ionic / Angular / TypeScript)
