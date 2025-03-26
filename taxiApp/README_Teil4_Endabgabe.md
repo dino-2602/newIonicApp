@@ -143,7 +143,7 @@ this.http.post('http://localhost:3000/api/login', this.user.value)
 - ![Register](tA_screenshots/Teil_4_Endabgabe/register1.png)
 
 ### Backend Routes
-- Login API: ![Login API](tA_screenshots/Teil_4_Endabgabe/LoginAPI.png)
+- Login API: ![Login API]<img src="tA_screenshots/Teil_4_Endabgabe/LoginAPI.png" alt="Screenshot" width="300" height="200">
 - Register API: ![Register API](tA_screenshots/Teil_4_Endabgabe/RegisterAPI.png)
 
 ## Code-Referenzen
