@@ -9,7 +9,6 @@ import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 //import { PushService } from '@app/services/push/push.service';
 import {Preferences} from '@capacitor/preferences';
-import {Toast} from "@capacitor/toast";
 
 const TOKEN_KEY = 'my-token';
 

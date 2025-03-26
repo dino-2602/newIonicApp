@@ -175,13 +175,11 @@ Diese Änderungen stellen sicher, dass alle Benutzerinformationen in der UI erfa
 
 ### Backend
 cd backend
-npm install
 node index.js
 Server läuft auf http://localhost:3000/.
 
 ### Frontend
 cd ../taxiApp
-npm install
 ionic serve
 App läuft auf http://localhost:8100/.
 
