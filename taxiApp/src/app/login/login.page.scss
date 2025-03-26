@@ -1,0 +1,117 @@
+// Farbdefinitionen mit modernem Farbverlauf
+:root {
+  --primary-color: #4a6cf7;
+  --secondary-color: #6a11cb;
+  --background-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  --input-background: rgba(255, 255, 255, 0.2);
+  --input-focus-background: rgba(255, 255, 255, 0.3);
+}
+
+ion-content {
+  --background: var(--background-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+    }
+  }
+}
+
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+    --color: white;
+    text-align: center;
+
+    ion-title {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+ion-item {
+  --background: var(--input-background);
+  --border-radius: 10px;
+  --color: white;
+  --padding-start: 15px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &.item-has-focus {
+    --background: var(--input-focus-background);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+
+  ion-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  ion-input {
+    --color: white;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+  }
+}
+
+.submit-button {
+  --background: var(--primary-color);
+  --background-activated: #3a58c5;
+  --color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 100%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    --background: #3a58c5;
+    transform: translateY(-2px);
+  }
+
+  ion-spinner {
+    margin-left: 10px;
+    color: white;
+  }
+}
+
+// Responsive Anpassungen
+@media (max-width: 400px) {
+  ion-content form {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+// Animationen
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+ion-content form {
+  animation: fadeIn 0.6s ease-out;
+}

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="user" (ngSubmit)="login()">
+    <ion-grid padding-top>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="item-input">
+            <ion-label position="stacked" class="ion-padding-bottom" color="medium">EMAIL</ion-label>
+            <ion-input type="email" name="email" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="item-input">
+            <ion-label position="stacked" class="ion-padding-bottom" color="medium">PASSWORD</ion-label>
+            <ion-input type="password" name="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button type="submit" expand="full" class="submit-button">Send
+      <span *ngIf="spinner">
+        <ion-spinner name="lines"></ion-spinner>
+      </span>
+    </ion-button>
+  </form>
+</ion-content>
