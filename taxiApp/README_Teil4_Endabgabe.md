@@ -143,8 +143,8 @@ this.http.post('http://localhost:3000/api/login', this.user.value)
 - ![Register](tA_screenshots/Teil_4_Endabgabe/register1.png)
 
 ### Backend Routes
-- Login API: ![Login API]<img src="tA_screenshots/Teil_4_Endabgabe/LoginAPI.png" alt="Screenshot" width="300" height="200">
-- Register API: ![Register API](tA_screenshots/Teil_4_Endabgabe/RegisterAPI.png)
+- Login API: <img src="tA_screenshots/Teil_4_Endabgabe/LoginAPI.png" alt="Screenshot" width="500" height="400">
+- Register API: <img src="tA_screenshots/Teil_4_Endabgabe/RegisterAPI.png" alt="Screenshot" width="500" height="400">
 
 ## Code-Referenzen
 - Frontend (Ionic) [Frontend](https://github.com/dino-2602/newIonicApp/tree/master/taxiApp)
