@@ -139,6 +139,8 @@ this.http.post('http://localhost:3000/api/login', this.user.value)
 ### Login Screen
 ![LogIn](tA_screenshots/Teil_4_Endabgabe/login2.png)
 
+----
+
 ### Register Screen
 ![Register](tA_screenshots/Teil_4_Endabgabe/register1.png)
 
