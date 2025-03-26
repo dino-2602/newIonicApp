@@ -32,7 +32,7 @@ Das Projekt soll demonstrieren, wie Ionic als Frontend-Technologie arbeitet und 
 - Sicherheitsaspekte wie Passwort-Hashing (z. B. mit bcrypt) und Fehlerbehandlung.
 
 ## Technologien
-![Ionic](https://img.shields.io/badge/Ionic-5%2B-blue?logo=ionic&logoColor=white)(bild.png =300x200) 
+![Ionic](https://img.shields.io/badge/Ionic-5%2B-blue?logo=ionic&logoColor=white) 
 ![Angular](https://img.shields.io/badge/Angular-v12%2B-red?logo=angular&logoColor=white)  
 ![Node.js](https://img.shields.io/badge/Node.js-v14%2B-green?logo=node.js&logoColor=white)  
 ![Express](https://img.shields.io/badge/Express-4.x-blue)  
@@ -137,7 +137,7 @@ this.http.post('http://localhost:3000/api/login', this.user.value)
 ## Screenshots
 
 ### Login Screen
-- ![LogIn](tA_screenshots/Teil_4_Endabgabe/login2.png)
+- ![LogIn]<img src="tA_screenshots/Teil_4_Endabgabe/login2.png" alt="Screenshot" width="300" height="200">
 
 ### Register Screen
 - ![Register](tA_screenshots/Teil_4_Endabgabe/register1.png)
